@@ -63,8 +63,6 @@ export default class Add extends Component {
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>&nbsp;
                 </form>
-                {/* <Link to="/category" className="btn btn-primary">Listing</Link>  */}
-                {/* <Route exact path="/category" component={Listing}/> */}
             </div>
         );
     }

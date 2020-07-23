@@ -2,7 +2,7 @@
  * Add category
  */
 export const addCategory = (data) => {
-    return axios.post('http://127.0.0.1:8001/api/category/store', data)
+    return axios.post('/api/category/store', data)
                     .then(result => {
                         return result.data.data
                     })
@@ -17,7 +17,7 @@ export const addCategory = (data) => {
 export const deleteCategory = (id) => {
 
 	return axios
-		.delete('http://127.0.0.1:8001/api/category/'+id+'/delete')
+		.delete('/api/category/'+id+'/delete')
 		.then(function(response) {
 		    return response;
 		})
@@ -30,7 +30,7 @@ export const deleteCategory = (id) => {
  * Update category
  */
 export const updateCategory = (id,data) => {
-    return axios.put('http://127.0.0.1:8001/api/category/update/'+id,data)
+    return axios.put('/api/category/update/'+id,data)
                     .then(result => {
                         return result.data.data
                     })
@@ -44,7 +44,7 @@ export const updateCategory = (id,data) => {
  */
 export const editCategory = (id) => {
 	return axios
-		.get('http://127.0.0.1:8001/api/category/edit/'+id)
+		.get('/api/category/edit/'+id)
 		.then((res) => {
 			return res;
         })
@@ -58,7 +58,7 @@ export const editCategory = (id) => {
  */
 export const listCategory = () => {
 	return axios
-		.get('http://127.0.0.1:8001/api/category')
+		.get('/api/category')
 		.then((res) => {
 			return res;
         })
@@ -72,7 +72,7 @@ export const listCategory = () => {
  */
 export const listCategoryPaginated = (num) => {
 	return axios
-		.get('http://127.0.0.1:8001/api/category?page='+num)
+		.get('/api/category?page='+num)
 		.then((res) => {
 			return res;
         })

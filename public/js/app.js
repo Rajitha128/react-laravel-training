@@ -70176,7 +70176,7 @@ __webpack_require__.r(__webpack_exports__);
  * Add category
  */
 var addCategory = function addCategory(data) {
-  return axios.post('http://127.0.0.1:8001/api/category/store', data).then(function (result) {
+  return axios.post('/api/category/store', data).then(function (result) {
     return result.data.data;
   })["catch"](function (err) {
     console.warn(err);
@@ -70187,7 +70187,7 @@ var addCategory = function addCategory(data) {
  */
 
 var deleteCategory = function deleteCategory(id) {
-  return axios["delete"]('http://127.0.0.1:8001/api/category/' + id + '/delete').then(function (response) {
+  return axios["delete"]('/api/category/' + id + '/delete').then(function (response) {
     return response;
   })["catch"](function (error) {
     console.warn(error);
@@ -70198,7 +70198,7 @@ var deleteCategory = function deleteCategory(id) {
  */
 
 var updateCategory = function updateCategory(id, data) {
-  return axios.put('http://127.0.0.1:8001/api/category/update/' + id, data).then(function (result) {
+  return axios.put('/api/category/update/' + id, data).then(function (result) {
     return result.data.data;
   })["catch"](function (err) {
     console.warn(err);
@@ -70209,7 +70209,7 @@ var updateCategory = function updateCategory(id, data) {
  */
 
 var editCategory = function editCategory(id) {
-  return axios.get('http://127.0.0.1:8001/api/category/edit/' + id).then(function (res) {
+  return axios.get('/api/category/edit/' + id).then(function (res) {
     return res;
   })["catch"](function (err) {
     console.warn(err);
@@ -70220,7 +70220,7 @@ var editCategory = function editCategory(id) {
  */
 
 var listCategory = function listCategory() {
-  return axios.get('http://127.0.0.1:8001/api/category').then(function (res) {
+  return axios.get('/api/category').then(function (res) {
     return res;
   })["catch"](function (err) {
     console.warn(err);
@@ -70231,7 +70231,7 @@ var listCategory = function listCategory() {
  */
 
 var listCategoryPaginated = function listCategoryPaginated(num) {
-  return axios.get('http://127.0.0.1:8001/api/category?page=' + num).then(function (res) {
+  return axios.get('/api/category?page=' + num).then(function (res) {
     return res;
   })["catch"](function (err) {
     console.warn(err);
@@ -70896,8 +70896,9 @@ var Listing = /*#__PURE__*/function (_Component) {
     value: function onDelete(category_id) {
       var _this3 = this;
 
-      ConfirmationAlert('Are you sure you want to delete this Category?', 'Delete category').then(function (response) {
-        var result = Object(_actions_CategoryActions__WEBPACK_IMPORTED_MODULE_6__["deleteCategory"])(category_id);
+      // ConfirmationAlert('Are you sure you want to delete this Category?', 'Delete category')
+      var result = Object(_actions_CategoryActions__WEBPACK_IMPORTED_MODULE_6__["deleteCategory"])(category_id);
+      result.then(function (response) {
         var categories = _this3.state.categories;
 
         for (var i = 0; i < categories.length; i++) {

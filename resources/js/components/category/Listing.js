@@ -38,10 +38,9 @@ export default class Listing extends Component {
 
     onDelete(category_id)
     {
-        ConfirmationAlert('Are you sure you want to delete this Category?', 'Delete category')
-        .then(response=>{
+        var result = deleteCategory(category_id);
 
-            var result = deleteCategory(category_id);
+        result.then(response=>{
 
             var categories = this.state.categories;
             for(var i=0; i< categories.length; i++)
